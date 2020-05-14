@@ -5,6 +5,8 @@
  *  Author: mj11r
  */ 
 
+void Intro_msgs_container(void);
+void Display_msg(char *topMsg, char *botMsg);
 
 #ifndef INTRO_H_
 #define INTRO_H_
