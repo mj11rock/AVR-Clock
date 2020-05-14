@@ -9,13 +9,16 @@ char LED;
 int cnt;
 char stop;
 
-char alarm[]="Alarm-1";
-char time[]="Time-0";
-char timer[]="Timer-2";
+char alarmIntro[]="Alarm-1";
+char timeIntro[]="Time-0";
+char timerIntro[]="Timer-2";
+char alarm[]="Alarm";
+char time[]="Time";
+char timer[]="Timer";
 int year=1980;
 char day[]="Mon";
 
-short int sec=30, min, hour, date, month, millis;
+short int sec=20, min=1, hour=1, date=28, month=10, millis;
 
 char hour_alarm = 0;
 char min_alarm = 0;
@@ -130,11 +133,11 @@ int main(void)
 
 	LCD_Clear();
 	LCD_pos(0,0);
-	LCD_STR(time);
+	LCD_STR(timeIntro);
 	LCD_pos(0,1);
-	LCD_STR(alarm);
+	LCD_STR(alarmIntro);
 	LCD_pos(7,0);
-	LCD_STR(timer);
+	LCD_STR(timerIntro);
 	
 	while (1)
 	{
@@ -152,9 +155,9 @@ void Led_OnOff(void){
 	PORTB = 0xff;			// enable all LEDs
 	_delay_ms(500);			// delay 500ms
 	PORTB=0x00;				// disable all LEDs
-	LCD_pos(0,0);			// Setting message postion
+	LCD_pos(0,0);			// Setting message position
 	LCD_STR(alarm);			// Show alarm message
-	_delay_ms(1000);		//	repeat...
+	_delay_ms(1000);		// Repeat...
 	PORTB = 0xff;
 	LCD_Clear();
 	_delay_ms(500);
@@ -162,6 +165,7 @@ void Led_OnOff(void){
 	LCD_pos(0,0);
 	LCD_STR(alarm);
 	_delay_ms(1000);
+	LCD_Clear();
 	
 }
 
